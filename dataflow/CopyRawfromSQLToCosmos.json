@@ -9,7 +9,7 @@
 						"referenceName": "srcCartitem",
 						"type": "DatasetReference"
 					},
-					"name": "Cartitem"
+					"name": "srcCartitem"
 				}
 			],
 			"sinks": [
@@ -18,7 +18,7 @@
 						"referenceName": "dstCartitem",
 						"type": "DatasetReference"
 					},
-					"name": "sink1"
+					"name": "dstCartitem"
 				}
 			],
 			"transformations": [],
@@ -33,8 +33,8 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     format: 'table') ~> Cartitem",
-				"Cartitem sink(allowSchemaDrift: true,",
+				"     format: 'table') ~> srcCartitem",
+				"srcCartitem sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     deletable:false,",
 				"     insertable:true,",
@@ -42,7 +42,7 @@
 				"     upsertable:false,",
 				"     format: 'document',",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1"
+				"     skipDuplicateMapOutputs: true) ~> dstCartitem"
 			]
 		}
 	}
