@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "copyCartitem",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -15,8 +15,79 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"enableStaging": false
-				}
+					"source": {
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "CosmosDbSqlApiSink",
+						"writeBehavior": "insert"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "CartItemId",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['CartItemId']"
+								}
+							},
+							{
+								"source": {
+									"name": "CartId",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['CartId']"
+								}
+							},
+							{
+								"source": {
+									"name": "ItemId",
+									"type": "Int32"
+								},
+								"sink": {
+									"path": "$['ItemId']"
+								}
+							},
+							{
+								"source": {
+									"name": "Quantity",
+									"type": "Int32"
+								},
+								"sink": {
+									"path": "$['Quantity']"
+								}
+							},
+							{
+								"source": {
+									"name": "DateCreated",
+									"type": "DateTime"
+								},
+								"sink": {
+									"path": "$['DateCreated']"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "srcCartitem",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dstCartitem",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": []
