@@ -649,6 +649,201 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "copyOrder",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "CosmosDbSqlApiSink",
+						"writeBehavior": "insert"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "OrderId",
+									"type": "Int32"
+								},
+								"sink": {
+									"path": "$['OrderId']"
+								}
+							},
+							{
+								"source": {
+									"name": "OrderDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"path": "$['OrderDate']"
+								}
+							},
+							{
+								"source": {
+									"name": "FirstName",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['FirstName']"
+								}
+							},
+							{
+								"source": {
+									"name": "LastName",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['LastName']"
+								}
+							},
+							{
+								"source": {
+									"name": "Address",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Address']"
+								}
+							},
+							{
+								"source": {
+									"name": "City",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['City']"
+								}
+							},
+							{
+								"source": {
+									"name": "State",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['State']"
+								}
+							},
+							{
+								"source": {
+									"name": "PostalCode",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['PostalCode']"
+								}
+							},
+							{
+								"source": {
+									"name": "Country",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Country']"
+								}
+							},
+							{
+								"source": {
+									"name": "Phone",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Phone']"
+								}
+							},
+							{
+								"source": {
+									"name": "SMSOptIn",
+									"type": "Boolean"
+								},
+								"sink": {
+									"path": "$['SMSOptIn']"
+								}
+							},
+							{
+								"source": {
+									"name": "SMSStatus",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['SMSStatus']"
+								}
+							},
+							{
+								"source": {
+									"name": "Email",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Email']"
+								}
+							},
+							{
+								"source": {
+									"name": "ReceiptUrl",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['ReceiptUrl']"
+								}
+							},
+							{
+								"source": {
+									"name": "Total",
+									"type": "Decimal"
+								},
+								"sink": {
+									"path": "$['Total']"
+								}
+							},
+							{
+								"source": {
+									"name": "PaymentTransactionId",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['PaymentTransactionId']"
+								}
+							},
+							{
+								"source": {
+									"name": "HasBeenShipped",
+									"type": "Boolean"
+								},
+								"sink": {
+									"path": "$['HasBeenShipped']"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "srcOrders",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dstOrder",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": []
