@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "dstCartitem",
+						"referenceName": "srcCartitem",
 						"type": "DatasetReference"
 					},
 					"name": "Cartitem"
@@ -23,9 +23,17 @@
 			],
 			"transformations": [],
 			"scriptLines": [
-				"source(allowSchemaDrift: true,",
+				"source(output(",
+				"          CartItemId as string,",
+				"          CartId as string,",
+				"          ItemId as integer,",
+				"          Quantity as integer,",
+				"          DateCreated as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     format: 'document') ~> Cartitem",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> Cartitem",
 				"Cartitem sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     deletable:false,",
