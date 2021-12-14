@@ -1,0 +1,15 @@
+{
+	"name": "dstOrderDetails",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dstCosmos",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "CosmosDbSqlApiCollection",
+		"schema": {},
+		"typeProperties": {
+			"collectionName": "OrderDetails"
+		}
+	}
+}
