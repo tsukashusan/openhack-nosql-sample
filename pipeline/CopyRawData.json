@@ -248,6 +248,174 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "copyItem",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "CosmosDbSqlApiSink",
+						"writeBehavior": "insert"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "ItemId",
+									"type": "Int32"
+								},
+								"sink": {
+									"path": "$['ItemId']"
+								}
+							},
+							{
+								"source": {
+									"name": "VoteCount",
+									"type": "Int32"
+								},
+								"sink": {
+									"path": "$['VoteCount']"
+								}
+							},
+							{
+								"source": {
+									"name": "ProductName",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['ProductName']"
+								}
+							},
+							{
+								"source": {
+									"name": "ImdbId",
+									"type": "Int32"
+								},
+								"sink": {
+									"path": "$['ImdbId']"
+								}
+							},
+							{
+								"source": {
+									"name": "Description",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Description']"
+								}
+							},
+							{
+								"source": {
+									"name": "ImagePath",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['ImagePath']"
+								}
+							},
+							{
+								"source": {
+									"name": "ThumbnailPath",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['ThumbnailPath']"
+								}
+							},
+							{
+								"source": {
+									"name": "UnitPrice",
+									"type": "Decimal"
+								},
+								"sink": {
+									"path": "$['UnitPrice']"
+								}
+							},
+							{
+								"source": {
+									"name": "CategoryId",
+									"type": "Int32"
+								},
+								"sink": {
+									"path": "$['CategoryId']"
+								}
+							},
+							{
+								"source": {
+									"name": "Category",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Category']"
+								}
+							},
+							{
+								"source": {
+									"name": "Popularity",
+									"type": "Decimal"
+								},
+								"sink": {
+									"path": "$['Popularity']"
+								}
+							},
+							{
+								"source": {
+									"name": "OriginalLanguage",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['OriginalLanguage']"
+								}
+							},
+							{
+								"source": {
+									"name": "ReleaseDate",
+									"type": "DateTime"
+								},
+								"sink": {
+									"path": "$['ReleaseDate']"
+								}
+							},
+							{
+								"source": {
+									"name": "VoteAverage",
+									"type": "Decimal"
+								},
+								"sink": {
+									"path": "$['VoteAverage']"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "srcItem",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dstItem",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": []
