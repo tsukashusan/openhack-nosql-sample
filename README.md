@@ -1,0 +1,1 @@
+# openhack-nosql-sample
