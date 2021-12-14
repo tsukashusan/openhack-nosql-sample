@@ -872,8 +872,48 @@
 						"type": "TabularTranslator",
 						"mappings": [
 							{
+								"source": {
+									"name": "UserId",
+									"type": "Int32"
+								},
 								"sink": {
-									"path": "$"
+									"path": "$['UserId']"
+								}
+							},
+							{
+								"source": {
+									"name": "Name",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Name']"
+								}
+							},
+							{
+								"source": {
+									"name": "Email",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Email']"
+								}
+							},
+							{
+								"source": {
+									"name": "CategoryId",
+									"type": "Int32"
+								},
+								"sink": {
+									"path": "$['CategoryId']"
+								}
+							},
+							{
+								"source": {
+									"name": "Personality",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Personality']"
 								}
 							}
 						]
