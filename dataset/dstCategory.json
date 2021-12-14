@@ -1,5 +1,5 @@
 {
-	"name": "CosmosDbSqlApiCollection1",
+	"name": "dstCategory",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "dstCosmos",
@@ -9,7 +9,7 @@
 		"type": "CosmosDbSqlApiCollection",
 		"schema": {},
 		"typeProperties": {
-			"collectionName": "dstCategory"
+			"collectionName": "Category"
 		}
 	}
 }
