@@ -1,11 +1,15 @@
 {
-	"name": "dataflow1",
+	"name": "CopyRawfromSQLToCosmos",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
 				{
-					"name": "source1"
+					"dataset": {
+						"referenceName": "dstCartitem",
+						"type": "DatasetReference"
+					},
+					"name": "Cartitem"
 				}
 			],
 			"sinks": [
@@ -20,8 +24,9 @@
 			"transformations": [],
 			"scriptLines": [
 				"source(allowSchemaDrift: true,",
-				"     validateSchema: false) ~> source1",
-				"source1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'document') ~> Cartitem",
+				"Cartitem sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     deletable:false,",
 				"     insertable:true,",
