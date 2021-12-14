@@ -872,53 +872,8 @@
 						"type": "TabularTranslator",
 						"mappings": [
 							{
-								"source": {
-									"name": "UserId",
-									"type": "Int32"
-								},
 								"sink": {
-									"name": "UserId",
-									"type": "Int32"
-								}
-							},
-							{
-								"source": {
-									"name": "Name",
-									"type": "String"
-								},
-								"sink": {
-									"name": "Name",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "Email",
-									"type": "String"
-								},
-								"sink": {
-									"name": "Email",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "CategoryId",
-									"type": "Int32"
-								},
-								"sink": {
-									"name": "CategoryId",
-									"type": "Int32"
-								}
-							},
-							{
-								"source": {
-									"name": "Personality",
-									"type": "String"
-								},
-								"sink": {
-									"name": "Personality",
-									"type": "String"
+									"path": "$"
 								}
 							}
 						]
