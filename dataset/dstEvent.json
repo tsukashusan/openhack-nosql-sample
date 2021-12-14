@@ -9,7 +9,7 @@
 		"type": "CosmosDbSqlApiCollection",
 		"schema": {},
 		"typeProperties": {
-			"collectionName": "Event"
+			"collectionName": "dstEvent"
 		}
 	}
 }
