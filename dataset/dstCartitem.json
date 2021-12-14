@@ -1,5 +1,5 @@
 {
-	"name": "dst",
+	"name": "dstCartitem",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "dstCosmos",
