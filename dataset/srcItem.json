@@ -79,5 +79,6 @@
 			"schema": "dbo",
 			"table": "Item"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }

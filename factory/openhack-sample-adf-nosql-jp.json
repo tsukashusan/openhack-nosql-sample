@@ -1,0 +1,9 @@
+{
+	"name": "openhack-sample-adf-nosql-jp",
+	"location": "japaneast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "3d646994-32f0-416a-9b9f-52ef1d5423b8",
+		"tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+	}
+}

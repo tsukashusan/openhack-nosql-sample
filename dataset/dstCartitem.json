@@ -11,5 +11,6 @@
 		"typeProperties": {
 			"collectionName": "dstCartitem"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }

@@ -86,5 +86,6 @@
 			"schema": "dbo",
 			"table": "Orders"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }

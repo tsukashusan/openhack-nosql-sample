@@ -54,5 +54,6 @@
 			"schema": "dbo",
 			"table": "Event"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }

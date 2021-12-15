@@ -42,5 +42,6 @@
 			"schema": "dbo",
 			"table": "ItemAggregate"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }
