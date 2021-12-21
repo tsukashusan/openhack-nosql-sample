@@ -6,43 +6,38 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "srcCartitem",
+						"referenceName": "srcOrders",
 						"type": "DatasetReference"
 					},
-					"name": "srcCartitem"
+					"name": "order"
 				}
 			],
-			"sinks": [
-				{
-					"dataset": {
-						"referenceName": "dstCartitem",
-						"type": "DatasetReference"
-					},
-					"name": "dstCartitem"
-				}
-			],
+			"sinks": [],
 			"transformations": [],
 			"scriptLines": [
 				"source(output(",
-				"          CartItemId as string,",
-				"          CartId as string,",
-				"          ItemId as integer,",
-				"          Quantity as integer,",
-				"          DateCreated as timestamp",
+				"          OrderId as integer,",
+				"          OrderDate as timestamp,",
+				"          FirstName as string,",
+				"          LastName as string,",
+				"          Address as string,",
+				"          City as string,",
+				"          State as string,",
+				"          PostalCode as string,",
+				"          Country as string,",
+				"          Phone as string,",
+				"          SMSOptIn as boolean,",
+				"          SMSStatus as string,",
+				"          Email as string,",
+				"          ReceiptUrl as string,",
+				"          Total as decimal(18,2),",
+				"          PaymentTransactionId as string,",
+				"          HasBeenShipped as boolean",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     format: 'table') ~> srcCartitem",
-				"srcCartitem sink(allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     deletable:false,",
-				"     insertable:true,",
-				"     updateable:false,",
-				"     upsertable:false,",
-				"     format: 'document',",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> dstCartitem"
+				"     format: 'table') ~> order"
 			]
 		}
 	}
