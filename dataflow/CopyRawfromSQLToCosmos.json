@@ -10,10 +10,21 @@
 						"type": "DatasetReference"
 					},
 					"name": "order"
+				},
+				{
+					"dataset": {
+						"referenceName": "srcOrderDetails",
+						"type": "DatasetReference"
+					},
+					"name": "orderDetails"
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "merge"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          OrderId as integer,",
@@ -37,7 +48,22 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     format: 'table') ~> order"
+				"     format: 'table') ~> order",
+				"source(output(",
+				"          OrderDetailId as integer,",
+				"          OrderId as integer,",
+				"          Email as string,",
+				"          ProductId as integer,",
+				"          Quantity as integer,",
+				"          UnitPrice as decimal(18,2)",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> orderDetails",
+				"order, orderDetails join(order@OrderId == orderDetails@OrderId,",
+				"     joinType:'inner',",
+				"     broadcast: 'auto')~> merge"
 			]
 		}
 	}
